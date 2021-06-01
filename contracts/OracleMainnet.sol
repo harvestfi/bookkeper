@@ -88,7 +88,7 @@ contract OracleMainnet is Governable {
   event PricingTokenAdded(address newPricingToken);
   event KeyTokenRemoved(address keyToken);
   event PricingTokenRemoved(address pricingToken);
-  event DefinedOutuptChanged(address newOutputToken, address oldOutputToken);
+  event DefinedOutputChanged(address newOutputToken, address oldOutputToken);
   event CurveExceptionAdded(address newException, uint256 exceptionList);
   event CurveExceptionRemoved(address oldException, uint256 exceptionList);
 
@@ -166,7 +166,7 @@ contract OracleMainnet is Governable {
   function changeDefinedOutput(address newOutputToken) external onlyGovernance validKeyToken(newOutputToken) {
     address oldOutputToken = definedOutputToken;
     definedOutputToken = newOutputToken;
-    emit DefinedOutuptChanged(newOutputToken, oldOutputToken);
+    emit DefinedOutputChanged(newOutputToken, oldOutputToken);
   }
 
   function addCurveException(address newException, uint256 exceptionList) external onlyGovernance {
